@@ -1,43 +1,94 @@
-body{
-    width: 400px;
+
+
+body {
+    width: 350px;
     height: 400px;
-    background: #0058a3;
+    background-image: url("dam_200.png");
+    background-position: center top 150px;
+    background-repeat: no-repeat;
+    background-color: lightcyan;
+    
+
 }
 
-a{
+a {
     font-size: medium;
     color: snow;
     text-decoration: none;
     font-weight: 600;
+    animation: noHoverAnim 0.5s linear;
 }
-.title{
+
+a:hover {
+    animation: hoverAnim 0.5s linear;
+    color: teal;
+}
+
+#titleholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    width: 75%;
     text-align: center;
     color: whitesmoke;
+    background: transparent;
+    border: 4px solid black;
+    border-collapse: collapse;
+    text-shadow: 2px 2px grey;
+    border-radius: 8px;
+    margin: 0px;
+    background-color: #0058a3;
+}
+
+h3 {
+    text-align: left;
+}
+
+.link {
+    font-size: 1.25rem;
+}
+
+.linkholder {
+    opacity: 0.76;
+    background: #0058a3;
+    margin-top: 5px;
+    display: flex;
     border: 4px solid black;
     border-radius: 8px;
-    padding: 0px;
-    margin: 0px;
-}
-.link{
-    font-size: 1.25rem;
-    
-}
-
-.linkholder{
-    display: flex;
-    
     justify-content: space-around;
-    
 }
 
-.linkholder div{
+.linkholder div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
 }
 
-.credits{
+.credits {
     text-align: center;
-    color:grey;
+    color: grey;
 }
+
+@keyframes hoverAnim {
+    0% {
+        color: snow;
+    }
+    100% {
+        color: teal;
+    }
+}
+
+@keyframes noHoverAnim {
+    0% {
+        color: teal;
+    }
+    100% {
+        color: snow;
+    }
+}
+
