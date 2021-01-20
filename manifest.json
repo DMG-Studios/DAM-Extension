@@ -1,18 +1,9 @@
 {
   "manifest_version": 2,
   "name": "Din Arcada Mamma",
-  "version": "0.1",
+  "version": "0.2",
   "browser_action": {
     "default_icon": "dam_200.png",
     "default_popup": "popup.html"
-  },
-  "background": {
-    "scripts": ["popup.js", "all.min.js"],
-    "css": ["css/all.min.css"],
-    "web_accessible_resources": [
-        "css/fontawesome.min.css",
-        "css/regular.min.css",
-        "webfonts/*.*"
-      ]
   }
 }

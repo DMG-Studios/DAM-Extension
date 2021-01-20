@@ -1,7 +1,0 @@
-@font-face {
-    font-family: "Font Awesome 5 Free";
-    font-style: normal;
-    font-weight: 400;
-    font-display:block;
-    src: url("chrome-extension://__MSG_@@extension_id__/webfonts/fa-regular-400.woff2");
-}
