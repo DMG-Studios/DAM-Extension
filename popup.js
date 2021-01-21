@@ -2,14 +2,13 @@ let date = new Date();
 let options = { weekday: 'long' }
 let today = date.toLocaleDateString('en-us', options);
 let element = document.getElementById('today');
-
 element.innerHTML = today;
+
 
 let vegFood = "Cucumbers with aspargus";
 let metFood = "Beef with haggis";
 let soupFood = "Warm bird water";
-let dessFood = "Sugar infused fatness";
-
+let dessFood = "Sugar infused water";
 
 var divList = document.getElementsByClassName('lunchbutton');
 var content = document.getElementById('content');
@@ -48,3 +47,4 @@ function showLuch() {
 }
 
 attachClickEvent();
+
