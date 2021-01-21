@@ -2,7 +2,7 @@ let date = new Date();
 let options = { weekday: 'long' }
 let today = date.toLocaleDateString('en-us', options);
 let element = document.getElementById('today');
-element.innerHTML = today;
+element.textContent = today;
 
 
 let vegFood = "Cucumbers with aspargus";
@@ -29,16 +29,16 @@ function showLuch() {
     } else {
         if (this.id == 'veg') {
             content.classList.add('veg');
-            content.innerHTML = vegFood;
+            content.textContent = vegFood;
         } else if (this.id == 'met') {
             content.classList.add('met');
-            content.innerHTML = metFood;
+            content.textContent = metFood;
         } else if (this.id == 'soup') {
             content.classList.add('soup');
-            content.innerHTML = soupFood;
+            content.textContent = soupFood;
         } else if (this.id == 'dess') {
             content.classList.add('dess');
-            content.innerHTML = dessFood;
+            content.textContent = dessFood;
         } else if (content.style.display == 'block') {
             content.style.display = 'none';
         }
