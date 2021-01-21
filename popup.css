@@ -88,6 +88,26 @@ h3 {
     align-items: left;
 }
 
+.news{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: medium;
+    color: white;
+}
+#today{
+    font-size: normal;
+    margin-right: 0;
+}
+h4{
+    margin: 10px 10px 10px 10px;
+}
+#latest{
+    margin: 12px 10px 12px 10px;
+    text-align: left;
+}
+
+
 .credits {
     text-align: center;
     color: grey;
