@@ -19,12 +19,12 @@ a {
     color: snow;
     text-decoration: none;
     font-weight: 600;
-    animation: noHoverAnim 0.5s linear;
+    animation: noHoverAnim 0.4s linear;
 }
 
 a:hover {
-    animation: hoverAnim 0.5s linear;
-    color: teal;
+    animation: hoverAnim 0.4s linear;
+    color: turquoise;
 }
 
 h1{
@@ -108,13 +108,13 @@ h3 {
         color: snow;
     }
     100% {
-        color: teal;
+        color:turquoise;
     }
 }
 
 @keyframes noHoverAnim {
     0% {
-        color: teal;
+        color: turquoise;
     }
     100% {
         color: snow;
