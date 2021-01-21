@@ -5,86 +5,38 @@ let today = date.toLocaleDateString('en-us', options);
 let element = document.getElementById('today');
 element.textContent = today;
 
-
-let vegFood = "Cucumbers with aspargus";
-let metFood = "Beef with haggis";
-let soupFood = "Warm bird water";
-let dessFood = "Sugar infused water";
-
 var divList = document.getElementsByClassName('lunchbutton');
 var content = document.getElementById('content');
 
 function attachClickEvent() {
     var listLength = divList.length;
     var i = 0;
-
     for (; i < listLength; i++) {
         divList[i].addEventListener("click", showLuch);
     }
 }
 
 var food;
-/*
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        food = JSON.parse(xmlhttp.response);
-    }
-
-
-
-}
-xmlhttp.open("GET", 'http://nugge.fi/foodGet.php', false);
-xmlhttp.send();
-
-
-/////
-async function fetchFood() {
-    let response = await fetch('http://nugge.fi/foodGet.php');
-
-    console.log(response.status); // 200
-    console.log(response.statusText); // OK
-
-    if (response.status === 200) {
-        let data = await response;
-    }
-}
-
-fetchFood();
-
-
-async function getText() {
-    let myObject = await fetch('http://nugge.fi/foodGet.php');
-    let myText = await myObject.text();
-    console.log(myText);
-  }
-  
-
-
-fetch('http://nugge.fi/foodGet.php').then((response)=>{
-    console.log(response.text)});
-*/
-/*
-fetch('http://nugge.fi/foodGet.php').then(r => food = r.json());
-*/
-
-fetch('http://nugge.fi/foodGet.php').then(r => r.json()).then(r => {showTest(r)})
-var menus;
-function showTest(r){
-    food = r;
-    menus = food.MenusForDays;
-}
-
 var menuList = [];
+function getFood() {
+    fetch('http://nugge.fi/foodGet.php').then(r => r.json()).then(r => { showTest(r) })
+}
+function showTest(r) {
+    food = r;
+    fillFood();
+}
 
-Object.keys(menus).forEach(function (k) {
-    let menudate = new Date(menus[k].Date.substring(0, 10))
-    if (menudate.toISOString() == date.toISOString()) {
-        for (i = 0; i < menus[k].SetMenus.length; i++) {
-            menuList[i] = menus[k].SetMenus[i].Components;
+function fillFood() {
+    var menus = food.MenusForDays;
+    Object.keys(menus).forEach(function (k) {
+        let menudate = new Date(menus[k].Date.substring(0, 10))
+        if (menudate.toISOString() == date.toISOString()) {
+            for (i = 0; i < menus[k].SetMenus.length; i++) {
+                menuList[i] = menus[k].SetMenus[i].Components;
+            }
         }
-    }
-});
+    });
+}
 
 function showLuch() {
     if (this.id == "today") {
@@ -113,3 +65,4 @@ function showLuch() {
 }
 
 attachClickEvent();
+getFood();
