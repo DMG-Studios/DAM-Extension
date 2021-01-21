@@ -54,6 +54,7 @@ h1{
 
 h3 {
     text-align: left;
+    margin: 7px;
 }
 
 .link {
@@ -75,9 +76,6 @@ h3 {
     color: white;
 }
 
-h3{
-    margin: 7px;
-}
 .linkholder div {
     display: flex;
     flex-direction: column;
