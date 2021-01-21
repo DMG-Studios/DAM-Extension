@@ -6,14 +6,7 @@ body {
     background-position: center top 80px;
     background-repeat: no-repeat;
 }
-@keyframes rotate{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
+
 a {
     font-size: medium;
     color: snow;
@@ -23,7 +16,7 @@ a {
 }
 
 a:hover {
-    animation: hoverAnim 0.4s linear;
+    animation: hoverAnim 0.s linear;
     color: turquoise;
 }
 
