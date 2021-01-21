@@ -75,7 +75,19 @@ h3 {
     font-size: medium;
     color: white;
 }
+#content{
+    display: none;
+    margin: 12px 0 12px 0;
+    text-align: center;
+    align-items: center;
+    font-style: italic;
+    font-size: medium;
+    color: white;
+}
 
+.lunchbutton{
+    cursor: pointer;
+}
 .linkholder div {
     display: flex;
     flex-direction: column;
