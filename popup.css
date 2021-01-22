@@ -80,6 +80,33 @@ h3 {
 
 .lunchbutton{
     cursor: pointer;
+    padding: 4px;
+    border: 1px solid #226fbe;
+    border-radius: 5px;
+    animation: nolunchbuttonHover 0.3s linear;
+}
+
+.lunchbutton:hover{
+    animation: lunchbuttonHover 0.3s linear;
+    background-color: darkblue;
+}
+
+@keyframes lunchbuttonHover{
+    0%{
+        background-color: #0058a3;
+    }
+    100%{
+        background-color: darkblue;
+    }
+}
+
+@keyframes nolunchbuttonHover {
+    0% {
+        background-color: darkblue;
+    }
+    100% {
+        background-color: #0058a3;
+    }
 }
 .linkholder div {
     display: flex;
