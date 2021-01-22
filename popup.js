@@ -11,7 +11,7 @@ var content = document.getElementById("content");
 function attachClickEvent() {
   var listLength = divList.length;
   for (var i = 0; i < listLength; i++) {
-    divList[i].addEventListener("click", showLuch);
+    divList[i].addEventListener("click", showLunch);
   }
 }
 
@@ -24,18 +24,17 @@ function getLinks() {
   }
 }
 
-
 var food;
 var menuList = [];
 function getFood() {
   fetch("http://nugge.fi/foodGet.php")
     .then((r) => r.json())
     .then((r) => {
-      showTest(r);
+      callFood(r);
     });
 }
 
-function showTest(r) {
+function callFood(r) {
   food = r;
   fillFood();
 }
@@ -56,27 +55,22 @@ function closeLink() {
   window.close();
 }
 
-function showLuch() {
+function showLunch() {
   if (this.id == "today") {
     content.style.display = "none";
-  } else if (
-    content.style.display == "block" &&
-    content.classList.contains(this.id)
+  } else if (content.style.display == "block" && content.classList.contains(this.id)
   ) {
     content.style.display = "none";
     content.className = "";
   } else {
+    content.classList = this.id;
     if (this.id == "veg") {
-      content.classList.add("veg");
       content.textContent = menuList[0];
     } else if (this.id == "met") {
-      content.classList.add("met");
       content.textContent = menuList[1];
     } else if (this.id == "soup") {
-      content.classList.add("soup");
       content.textContent = menuList[2];
     } else if (this.id == "dess") {
-      content.classList.add("dess");
       content.textContent = menuList[3];
     } else if (content.style.display == "block") {
       content.style.display = "none";
