@@ -68,9 +68,10 @@ h3 {
     font-size: medium;
     color: white;
 }
+
 #content{
     display: none;
-    margin: 12px 0 12px 0;
+    margin: 20px 0 20px 0;
     text-align: center;
     align-items: center;
     font-style: italic;
