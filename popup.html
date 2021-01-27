@@ -4,17 +4,22 @@
 
 <head>
     <title>Din Arcada Mamma</title>
-    <link rel="stylesheet" type="text/css" href="popup.css">
+    <link rel="stylesheet" type="text/css" href="css/popup.css">
     <link rel="stylesheet" type="text/css" href="css/fontello-codes.css">
     <link rel="stylesheet" type="text/css" href="css/fontello.css">
-    <title>Din Arcada Mamma</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="logo">
         <div id="titleholder">
-            <div class="title title-bg">
-                <h1>Din Arcada Mamma</h1>
+            </div>
+            <h4 id="nextNoti">Next up</h4>
+            <div id="nextCalendar">
+                <h4 id="nextCal"> Next up</h4>
+                <p id="nextTime"></p>
+                <p id="nextComment"></p>
+                <a id="nextLink" href="" target="_blank">Link to lecture</a>
             </div>
         </div>
         <hr>
@@ -58,27 +63,25 @@
                 <div class="lunchbutton" id="dess">Desserty</div>
             </article>
             <article id="content">
-                Lorem ipsum veggy soupy
+                <span id="food"> </span>
             </article>
         </section>
         <hr>
-        <section>
+        <section id="newsSection">
+            <h4 id="newsNoti">News</h4>
             <article class="news">
-                <h4>News</h4>
-                <span id="latest">Från och med 1 januari 2021 har du som är yrkeshögskolestudent
-                    tillgång till Studenternas hälsovårdsstiftelse (SHVS) hälsovårdstjänster.
-                    Läs mer om <a
-                        href="https://start.arcada.fi/sv/nyheter/kommunikation/2021-01-07/studenthalsovarden-forandras-nu-kan-du-anvanda-shvs-tjanster"
-                        target="_blank">förändringen i studenthälsovården här.</a></span>
+                <a class="link" id="newsLink" href="" target="_blank">
+                    <h3 id="latest">Heading</h3>
+                </a>
+                <span id="newsBody">NewsBody</span>
             </article>
         </section>
         <hr>
         <div class="credits">
-            <span>Johannes Edgren & Markus Kankkonen @ <a class="credits" href="https://www.dinmamma.fi"
-                    target="_blank">DMG
-                    Studios<i class="far fa-copyright"></i></a> </span>
+            <span><a class="credits link" href="https://www.dinmamma.fi" target="_blank">© DMG Studios</a></span>
         </div>
         <script src="popup.js"></script>
+        <script src="content.js"></script>
     </div>
 </body>
 

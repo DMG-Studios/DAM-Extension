@@ -6,7 +6,7 @@ let element = document.getElementById("today");
 element.textContent = today;
 
 var divList = document.getElementsByClassName("lunchbutton");
-var content = document.getElementById("content");
+var content = document.getElementById("food");
 
 function attachClickEvent() {
   var listLength = divList.length;

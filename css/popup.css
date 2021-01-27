@@ -3,7 +3,8 @@ body {
     height: 100%;
     background-color: rgb(0,88,163);
     background-image: url("dam_200.png");
-    background-position: center top 80px;
+    background-position: center top 150px;
+    font-family: 'Open Sans', sans-serif;
     background-repeat: no-repeat;
 }
 
@@ -20,31 +21,93 @@ a:hover {
     color: turquoise;
 }
 
-h1{
-    margin:0;
-}
 #titleholder {
+    position: relative;
+    width: 360px;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-h1{
+#nextNoti {
+    opacity: 0.7;
+    position: absolute;
+    color: white;
+    text-decoration: underline;
+    left: 10px;
+    top: 0px;
     margin: 0;
+    padding: 0;
+}
+
+#newsSection {
+    position: relative;
+}
+
+#newsNoti {
+    opacity: 0.7;
+    position: absolute;
+    color: white;
+    text-decoration: underline;
+    left: 10px;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: large;
 }
 
 .title {
     text-align: center;
     color: whitesmoke;
     background: transparent;
-    
     text-shadow: 2px 2px grey;
     padding-left: 10px;
     padding-right: 10px;
     background-color: #0058a3;
 }
 
+#nextCalendar {
+    text-align: center;
+    color: whitesmoke;
+    background: transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 375px;
+    background-color: #0058a3;
+}
+
+#nextCal {
+    margin: 0px;
+    padding: 0px;
+    font-size: medium;
+}
+
+#nextTime {
+    padding: 0px;
+    font-size: normal;
+}
+
+#nextComment {
+    word-wrap: break-word;
+    padding: 0px;
+    font-size: small;
+}
+
+#nextLink {
+    padding: 0px;
+    font-size: medium;
+}
+.linkholder h3{
+    padding: 2px;
+    margin: 0;
+}
 h3 {
     text-align: left;
     margin: 7px;
@@ -55,31 +118,37 @@ h3 {
 }
 
 .linkholder {
-    background-color: rgba(0,88,163,0.76);
+    background-color: rgba(0, 88, 163, 0.76);
     margin-top: 5px;
     display: flex;
     justify-content: space-around;
 }
 
-#toLunch{
+#toLunch {
     display: flex;
-    justify-content: space-around;
-    align-items: left;
+    justify-content: space-evenly;
     font-size: medium;
     color: white;
 }
 
-#content{
-    display: none;
-    margin: 20px 0 20px 0;
+#content {
+    display: flex;
+    justify-content: center;
     text-align: center;
+    max-width: 365px;
     align-items: center;
     font-style: italic;
-    font-size: medium;
     color: white;
+    font-size: 14px;
 }
 
-.lunchbutton{
+#food {
+    display: none;
+    margin: 10px 5px 10px 5px;
+    width: 360px;
+}
+
+.lunchbutton {
     cursor: pointer;
     padding: 4px;
     border: 1px solid #226fbe;
@@ -87,16 +156,16 @@ h3 {
     animation: nolunchbuttonHover 0.3s linear;
 }
 
-.lunchbutton:hover{
+.lunchbutton:hover {
     animation: lunchbuttonHover 0.3s linear;
     background-color: darkblue;
 }
 
-@keyframes lunchbuttonHover{
-    0%{
+@keyframes lunchbuttonHover {
+    0% {
         background-color: #0058a3;
     }
-    100%{
+    100% {
         background-color: darkblue;
     }
 }
@@ -109,6 +178,7 @@ h3 {
         background-color: #0058a3;
     }
 }
+
 .linkholder div {
     display: flex;
     flex-direction: column;
@@ -116,41 +186,56 @@ h3 {
     align-items: left;
 }
 
-.news{
+.news {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: medium;
+    padding-top: 15px;
     color: white;
 }
-#today{
+
+#today {
     font-size: normal;
     margin-right: 0;
 }
-h4{
-    margin: 10px 10px 10px 10px;
-}
-#latest{
-    margin: 12px 10px 12px 10px;
-    text-align: left;
- 
+
+.news h4 {
+    margin: 0px;
+    padding: 0px;
 }
 
+#latest {
+    width: 360px;
+    padding: 0;
+    margin: 0;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+#newsBody {
+    width: 360px;
+    word-wrap: break-word;
+    margin: 5px;
+    text-align: center;
+}
 
 .credits {
     text-align: center;
     color: grey;
 }
-.credits a{
+
+.credits a {
     animation: none;
     color: darkgrey;
 }
+
 @keyframes hoverAnim {
     0% {
         color: snow;
     }
     100% {
-        color:turquoise;
+        color: turquoise;
     }
 }
 
