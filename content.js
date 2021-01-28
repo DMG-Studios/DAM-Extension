@@ -118,6 +118,8 @@ function GetNextEvent() {
             } else {
                 nextCalendarTime.textContent = new Date(nextEventStart).toLocaleDateString('fi-FI',) + " " + new Date(nextEventStart).toLocaleTimeString('fi-FI', dOpt) + " - " + new Date(nextEventEnd).toLocaleTimeString('fi-FI', dOpt);
             }
+
+            // If user hasn't changed from default show comment with settings notifi//
             if(arbsHash == "default"){
                 nextCalendarComment.textContent = "Please add your ARBS link in settings from the cog in the top right corner to see your own schedule."    
             }else{
