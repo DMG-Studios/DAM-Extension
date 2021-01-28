@@ -8,6 +8,12 @@ element.textContent = today;
 var divList = document.getElementsByClassName("lunchbutton");
 var content = document.getElementById("food");
 
+var optionsLink = document.getElementById("settings");
+function settings(){
+    chrome.runtime.openOptionsPage();
+}
+optionsLink.addEventListener("click", settings);
+
 function attachClickEvent() {
   var listLength = divList.length;
   for (var i = 0; i < listLength; i++) {

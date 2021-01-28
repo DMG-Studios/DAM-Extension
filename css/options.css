@@ -8,7 +8,11 @@ body {
     font-size: large;
     color: white;
 }
-
+#guide{
+    color: white;
+    word-wrap: break-word;
+    max-width: 350px;
+}
 #settings{
     display: flex;
     flex-direction: column;
