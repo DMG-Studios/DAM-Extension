@@ -108,8 +108,7 @@ function GetNextEvent() {
             nextCalendar.textContent = nextEventName + " @ " + nextEventRoom;
 
             // Assign time, comment and link to calendar frame // 
-            nextCalendarTime.textContent = new Date(nextEventStart).toLocaleDateString('fi-FI',) + " " + new Date(nextEventStart).toLocaleTimeString('en-GB', dOpt) + " - " + new Date(nextEventEnd).toLocaleTimeString('en-GB', dOpt);
-            nextCalendarComment.textContent = comment;
+            nextCalendarTime.textContent = new Date(nextEventStart).toLocaleDateString('fi-FI',) + " " + new Date(nextEventStart).toLocaleTimeString('fi-FI', dOpt) + " - " + new Date(nextEventEnd).toLocaleTimeString('fi-FI', dOpt);            nextCalendarComment.textContent = comment;
             nextCalendarLink.href = link;
 
             // if there wasn't a response assign error message // 
