@@ -72,13 +72,15 @@ function GetNextEvent() {
 
     function fillCalendar() {
         // Check that CalendarEvents have been fetched before populating, else proceed with error message // 
+        const sortedCalendar = calendarEvents.sort((a,b) => new Date(a.startTime) - new Date(b.startTime));
+
         if (calendarEvents) {
 
-            let nextEventName = calendarEvents[0].name;
-            let nextEventComment = calendarEvents[0].comment;
-            let nextEventStart = calendarEvents[0].startTime;
-            let nextEventEnd = calendarEvents[0].endTime;
-            let nextEventRoom = calendarEvents[0].room;
+            let nextEventName = sortedCalendar[0].name;
+            let nextEventComment = sortedCalendar[0].comment;
+            let nextEventStart = sortedCalendar[0].startTime;
+            let nextEventEnd = sortedCalendar[0].endTime;
+            let nextEventRoom = sortedCalendar[0].room;
 
             // Regexp incomming comment for a http/s link to append to Link to lecture // 
 
@@ -123,6 +125,7 @@ function GetNextEvent() {
             if(arbsHash == "default"){
                 nextCalendarComment.textContent = "Please add your ARBS link in settings from the cog in the top right corner to see your own schedule."    
             }else{
+                comment = comment.replace(/[^\wåäö\s]/gi, '');
                 nextCalendarComment.textContent = comment;
             }
             nextCalendarLink.href = link;
