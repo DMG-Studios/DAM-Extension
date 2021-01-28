@@ -98,6 +98,11 @@ function GetNextEvent() {
                 }
             });
 
+            // if result doesn't return a link set it to ARBS 
+
+            if (link == undefined) {
+                link = "https://famnen.arcada.fi/arbs/"
+            }
             // If no room is booked assign to online // 
 
             if (nextEventRoom == "") {
@@ -108,7 +113,12 @@ function GetNextEvent() {
             nextCalendar.textContent = nextEventName + " @ " + nextEventRoom;
 
             // Assign time, comment and link to calendar frame // 
-            nextCalendarTime.textContent = new Date(nextEventStart).toLocaleDateString('fi-FI',) + " " + new Date(nextEventStart).toLocaleTimeString('fi-FI', dOpt) + " - " + new Date(nextEventEnd).toLocaleTimeString('fi-FI', dOpt);            nextCalendarComment.textContent = comment;
+            if (nextEventStart.length == 8) {
+                nextCalendarTime.textContent = new Date(0, 0, 0, nextEventStart.substr(0, 2), nextEventStart.substr(3, 2), 0).toLocaleTimeString('fi-Fi') + " - " + new Date(0, 0, 0, nextEventEnd.substr(0, 2), nextEventEnd.substr(3, 2), 0).toLocaleTimeString('fi-Fi')
+            } else {
+                nextCalendarTime.textContent = new Date(nextEventStart).toLocaleDateString('fi-FI',) + " " + new Date(nextEventStart).toLocaleTimeString('fi-FI', dOpt) + " - " + new Date(nextEventEnd).toLocaleTimeString('fi-FI', dOpt);
+            }
+            nextCalendarComment.textContent = comment;
             nextCalendarLink.href = link;
 
             // if there wasn't a response assign error message // 

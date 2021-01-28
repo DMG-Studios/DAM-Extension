@@ -15,6 +15,8 @@ function attachClickEvent() {
   }
 }
 
+// Add event listener to close addon when a link is clicked // 
+
 var links = document.getElementsByClassName("link");
 
 function getLinks() {
@@ -22,6 +24,12 @@ function getLinks() {
   for (var i = 0; i < l; i++) {
     links[i].addEventListener("click", closeLink);
   }
+}
+
+function closeLink() {
+  setTimeout(() => {
+      window.close();
+  }, 100); 
 }
 
 var food;
@@ -56,10 +64,6 @@ function fillFood() {
       }
     }
   });
-}
-
-function closeLink() {
-  window.close();
 }
 
 function showLunch() {
