@@ -1,14 +1,24 @@
 @font-face {
   font-family: 'fontello';
-  src: url('../font/fontello.eot?26394744');
-  src: url('../font/fontello.eot?26394744#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff2?26394744') format('woff2'),
-       url('../font/fontello.woff?26394744') format('woff'),
-       url('../font/fontello.ttf?26394744') format('truetype'),
-       url('../font/fontello.svg?26394744#fontello') format('svg');
+  src: url('../font/fontello.eot?97885199');
+  src: url('../font/fontello.eot?97885199#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2?97885199') format('woff2'),
+       url('../font/fontello.woff?97885199') format('woff'),
+       url('../font/fontello.ttf?97885199') format('truetype'),
+       url('../font/fontello.svg?97885199#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?97885199#fontello') format('svg');
+  }
+}
+*/
  
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
@@ -45,15 +55,33 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-params:before { content: '\e800'; } /* '' */
+.icon-cog:before { content: '\e800'; } /* '' */
 .icon-calendar:before { content: '\e801'; } /* '' */
 .icon-pencil:before { content: '\e802'; } /* '' */
 .icon-mail:before { content: '\e803'; } /* '' */
 .icon-book:before { content: '\e804'; } /* '' */
 .icon-book-1:before { content: '\e805'; } /* '' */
-.icon-cog:before { content: '\e806'; } /* '' */
+.icon-params:before { content: '\e806'; } /* '' */
+.icon-chart-bar:before { content: '\e807'; } /* '' */
+.icon-cancel:before { content: '\e808'; } /* '' */
+.icon-users:before { content: '\e809'; } /* '' */
+.icon-doc-text-inv-1:before { content: '\e80a'; } /* '' */
 .icon-emo-cry:before { content: '\e80f'; } /* '' */
+.icon-crown:before { content: '\e844'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-tasks:before { content: '\f0ae'; } /* '' */
+.icon-gauge:before { content: '\f0e4'; } /* '' */
+.icon-sitemap:before { content: '\f0e8'; } /* '' */
 .icon-food:before { content: '\f0f5'; } /* '' */
 .icon-building:before { content: '\f0f7'; } /* '' */
 .icon-desktop:before { content: '\f108'; } /* '' */
+.icon-ok-squared:before { content: '\f14a'; } /* '' */
+.icon-doc-text-inv:before { content: '\f15c'; } /* '' */
+.icon-linux:before { content: '\f17c'; } /* '' */
 .icon-bank:before { content: '\f19c'; } /* '' */
+.icon-reddit:before { content: '\f1a1'; } /* '' */
+.icon-git:before { content: '\f1d3'; } /* '' */
+.icon-wechat:before { content: '\f1d7'; } /* '' */
+.icon-hashtag:before { content: '\f292'; } /* '' */
+.icon-thermometer:before { content: '\f2c7'; } /* '' */
+.icon-linkedin:before { content: '\f318'; } /* '' */

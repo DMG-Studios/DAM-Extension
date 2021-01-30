@@ -9,14 +9,63 @@
 
 <body>
   <div id="settings">
+    <p id="guide">To get your ARBS iCAL Link login to https://famnen.arcada.fi/arbs and go to "Visa Min Läsordning", at
+      the top of the page there is a iCAL link, copy the link, paste it below and click save and the internal magic does
+      the rest. To go back to all events enter "default" in the field below.</p>
     <form>
-      <p id="guide">To get your ARBS iCAL Link login to https://famnen.arcada.fi/arbs and go to "Visa Min Läsordning", at the top of the page there is a iCAL link, copy the lin, paste it below and click save and the internal magic does the rest. To go back to all events enter "default" in the field below.</p>
-
-      <label id="labels"><h3>ARBS Link</h3><input size="50" type="text" id="arbs"></label><br>
-      <br>
-      <button type="submit">Save</button>
+      <label id="labels">
+        <h3>ARBS Link</h3><input size="40" type="text" id="arbs"> <button type="submit">Save ARBS</button>
+      </label>
+      <br><br>
     </form>
+    <h3> Select the links you want here </h3>
+    <form id="selectLinks">
+      <div id="enabledLinks">
+        <div class="col">
+          <input type="checkbox" class="checkbox" id="asta" name="asta" value="asta" checked>
+          <label for="asta">ASTA</label><br>
 
+          <input type="checkbox" class="checkbox" id="arbs" name="arbs" value="arbs" checked>
+          <label for="arbs">ARBS</label><br>
+
+          <input type="checkbox" class="checkbox" id="itsl" name="itsl" value="itsl" checked>
+          <label for="itsl">ITSLEARNING</label><br>
+
+          <input type="checkbox" class="checkbox" id="skri" name="skri" value="skri" checked>
+          <label for="skri">SKRIVGUIDE</label><br>
+
+          <input type="checkbox" class="checkbox" id="webm" name="webm" value="webm" checked>
+          <label for="webm">WEBMAIL</label><br>
+
+          <input type="checkbox" class="checkbox" id="finn" name="finn" value="finn" checked>
+          <label for="finn">FINNA</label><br>
+
+          <input type="checkbox" class="checkbox" id="lynd" name="lynd" value="lynd" checked>
+          <label for="lynd">LI-LEARNING</label><br>
+        </div>
+        <div class="col">
+          <input type="checkbox" class="checkbox" id="mat" name="mat" value="mat" checked>
+          <label for="mat">MAT</label><br>
+          <input type="checkbox" class="checkbox" id="libg" name="libg" value="libg" checked>
+          <label for="libg">LIBGUIDE</label><br>
+
+          <input type="checkbox" class="checkbox" id="thes" name="thes" value="thes" checked>
+          <label for="thes">THESEUS</label><br>
+
+          <input type="checkbox" class="checkbox" id="offi" name="offi" value="offi" checked>
+          <label for="offi">OFFICE365</label><br>
+
+          <input type="checkbox" class="checkbox" id="incy" name="incy" value="incy" checked>
+          <label for="incy">INCY</label><br>
+
+          <input type="checkbox" class="checkbox" id="perl" name="perl" value="perl" checked>
+          <label for="perl">PERLEGO</label><br>
+
+          <input type="checkbox" class="checkbox" id="tlk" name="tlk" value="tlk" checked>
+          <label for="tlk">TLK</label><br>
+        </div>
+      </div>
+    </form>
     <script src="options.js"></script>
   </div>
 </body>

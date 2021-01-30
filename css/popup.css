@@ -1,8 +1,8 @@
 body {
-    width: 375px;
-    height: 100%;
     background-color: rgb(0, 88, 163);
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    scrollbar-width: thin;
 }
 
 #logoholder {
@@ -16,8 +16,61 @@ body {
     color: white;
     font-size: x-large;
     position: absolute;
-    right: -10px;
+    right: 0px;
     top: -5px;
+}
+
+.scrollNews {
+    cursor: pointer;
+    font-size: x-large;
+    width: 40px;
+    height: 100px;
+    margin-top: 10px;
+    opacity: 0.1;
+
+    z-index: 100;
+    transition: opacity 0.5s linear;
+}
+
+.scrollNews:hover {
+    animation: NewsBoxHover 0.5s linear;
+    opacity: 0.5;
+}
+
+@keyframes NewsBoxHover {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes NewsBoxHoverOut {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#left {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    background-image: url('../arrow_s.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#right {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    background-image: url('../arrow_r.png');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 a {
@@ -29,7 +82,7 @@ a {
 }
 
 a:hover {
-    animation: hoverAnim 0.s linear;
+    animation: hoverAnim 0.4s linear;
     color: turquoise;
 }
 
@@ -100,7 +153,6 @@ h1 {
 }
 
 #nextCal {
-    text-align: center;
     margin: 0px;
     padding: 0px;
     width: 320px;
@@ -110,6 +162,7 @@ h1 {
 #nextTime {
     margin: 5px;
     padding: 0px;
+    font-size: normal;
 }
 
 #nextComment {
@@ -139,11 +192,12 @@ h3 {
     font-size: 1.25rem;
 }
 
-.linkholder {
+#grid {
+    padding-left: 5px;
     background-color: rgba(0, 88, 163, 0.76);
     margin-top: 5px;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #toLunch {

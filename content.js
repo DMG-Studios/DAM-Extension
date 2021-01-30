@@ -8,7 +8,7 @@ let nextCalendarLink = document.getElementById("nextLink");
 
 let arbsHash;
 let fetchLink;
-
+let newsTimeOut = 7600;
 // Get arbs hash set in options // 
 
 function GetHash() {
@@ -22,9 +22,6 @@ function GetHash() {
         console.log(`Error: ${error}`);
     }
 
-    /*let getting = chrome.storage.local.get("arbs");
-    getting.then(setCurrentChoice, onError);
-*/
     chrome.storage.sync.get(['arbs'], function (result) {
         setCurrentChoice(result);
     });
@@ -36,7 +33,6 @@ GetHash();
 
 // Set Fetch link composed of api address and your ARBS link // 
 function call() {
-    console.log(arbsHash);
     fetchLink = 'https://api.cornern.tlk.fi/dam-api/calendar?link=' + arbsHash;
     GetNextEvent();
     GetNews();
@@ -72,9 +68,10 @@ function GetNextEvent() {
 
     function fillCalendar() {
         // Check that CalendarEvents have been fetched before populating, else proceed with error message // 
-        const sortedCalendar = calendarEvents.sort((a,b) => new Date(a.startTime) - new Date(b.startTime));
 
+        const sortedCalendar = calendarEvents.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
         if (calendarEvents) {
+
 
             let nextEventName = sortedCalendar[0].name;
             let nextEventComment = sortedCalendar[0].comment;
@@ -85,10 +82,10 @@ function GetNextEvent() {
             // Regexp incomming comment for a http/s link to append to Link to lecture // 
 
             let nextLink = nextEventComment.split(/(https?:\/\/[^\s]+)/g);
-
             // Variables to split comment into link and commentEntry // 
 
             let link;
+
             let comment;
 
             // Forloop to assing link and comment // 
@@ -105,6 +102,7 @@ function GetNextEvent() {
             if (link == undefined) {
                 link = "https://famnen.arcada.fi/arbs/"
             }
+
             // If no room is booked assign to online // 
 
             if (nextEventRoom == "") {
@@ -116,15 +114,16 @@ function GetNextEvent() {
 
             // Assign time, comment and link to calendar frame // 
             if (nextEventStart.length == 8) {
-                nextCalendarTime.textContent = new Date(0, 0, 0, nextEventStart.substr(0, 2), nextEventStart.substr(3, 2), 0).toLocaleTimeString('fi-Fi') + " - " + new Date(0, 0, 0, nextEventEnd.substr(0, 2), nextEventEnd.substr(3, 2), 0).toLocaleTimeString('fi-Fi')
+                nextCalendarTime.textContent = new Date(0, 0, 0, nextEventStart.substr(0, 2), nextEventStart.substr(3, 2), 0).toLocaleTimeString('fi-Fi', dOpt) + " - " + new Date(0, 0, 0, nextEventEnd.substr(0, 2), nextEventEnd.substr(3, 2), 0).toLocaleTimeString('fi-Fi', dOpt)
             } else {
                 nextCalendarTime.textContent = new Date(nextEventStart).toLocaleDateString('fi-FI',) + " " + new Date(nextEventStart).toLocaleTimeString('fi-FI', dOpt) + " - " + new Date(nextEventEnd).toLocaleTimeString('fi-FI', dOpt);
             }
 
             // If user hasn't changed from default show comment with settings notifi//
-            if(arbsHash == "default"){
-                nextCalendarComment.textContent = "Please add your ARBS link in settings from the cog in the top right corner to see your own schedule."    
-            }else{
+
+            if (arbsHash == "default") {
+                nextCalendarComment.textContent = "Please add your ARBS link in settings from the cog in the top right corner to see your own schedule."
+            } else {
                 comment = comment.replace(/[^\wåäö\s]/gi, '');
                 nextCalendarComment.textContent = comment;
             }
@@ -170,16 +169,27 @@ function GetNews() {
             setInterval(() => {
                 updateNews(news[x]);
                 x = x < Object.keys(news).length - 1 ? x + 1 : 0;
-            }, 7000);
+            }, newsTimeOut);
         } else {
             latest.textContent = "Couldn't fetch news, we are sorry and working on a fix";
         }
     }
-
     function updateNews(newsItem) {
         latest.textContent = newsItem.heading;
         newsBody.textContent = newsItem.body.substr(0, 150).substr(0, newsItem.body.substr(0, 150).lastIndexOf(" ")) + "\u2026";
         newsLink.href = newsItem.link;
     }
+    function newLeft() {
+        newsTimeOut = 0;
+        x = x == 0 ? 4 : x - 1;
+        updateNews(news[x]);
+    }
 
+    function newsRight() {
+        newsTimeOut = 0;
+        x = x == 4 ? 0 : x + 1
+        updateNews(news[x]);
+    }
+    document.getElementById('left').addEventListener('click', newLeft);
+    document.getElementById('right').addEventListener('click', newsRight);
 }

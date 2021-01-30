@@ -9,8 +9,10 @@ var divList = document.getElementsByClassName("lunchbutton");
 var content = document.getElementById("food");
 
 var optionsLink = document.getElementById("settings");
-function settings(){
-    chrome.runtime.openOptionsPage();
+var enabledLinks;
+
+function settings() {
+  chrome.runtime.openOptionsPage();
 }
 optionsLink.addEventListener("click", settings);
 
@@ -21,6 +23,35 @@ function attachClickEvent() {
   }
 }
 
+function GetLinkList() {
+  function setCurrentChoice(result) {
+    enabledLinks = result.enabledLinks;
+    enableLinks();
+  }
+  chrome.storage.sync.get(['enabledLinks'], function (result) {
+    setCurrentChoice(result)
+  });
+}
+
+function enableLinks() {
+  var show = document.getElementsByClassName("show");
+  console.log(show);
+  let match = false;
+  for (const link of show) {
+    console.log(link);
+    match = false;
+    enabledLinks.forEach(enabled => {
+      if (link.id == enabled) {
+        match = true;
+        link.style.display = 'block';
+      } else if (!match) {
+        link.style.display = 'none';
+      }
+    })
+  };
+}
+
+GetLinkList();
 // Add event listener to close addon when a link is clicked // 
 
 var links = document.getElementsByClassName("link");
@@ -34,8 +65,8 @@ function getLinks() {
 
 function closeLink() {
   setTimeout(() => {
-      window.close();
-  }, 100); 
+    window.close();
+  }, 100);
 }
 
 var food;
@@ -55,7 +86,6 @@ function callFood(r) {
 
 function fillFood() {
   var menus = food.MenusForDays;
-  console.group(food);
   Object.keys(menus).forEach(function (k) {
     let menudate = new Date(menus[k].Date.substring(0, 10));
     if (menudate.toISOString() == date.toISOString()) {
