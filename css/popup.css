@@ -9,6 +9,7 @@ body {
     background-image: url("../dam_200.png");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 35%;
 }
 
 #settings {
@@ -25,9 +26,7 @@ body {
     font-size: x-large;
     width: 40px;
     height: 100px;
-    margin-top: 10px;
     opacity: 0.1;
-
     z-index: 100;
     transition: opacity 0.5s linear;
 }
@@ -58,19 +57,23 @@ body {
 #left {
     position: absolute;
     left: 0px;
-    top: 10px;
+    top: 0px;
     background-image: url('../arrow_s.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-clip: content-box;
+    background-size: 20%;
+    background-position-x: center;
 }
 
 #right {
     position: absolute;
     right: 0px;
-    top: 10px;
+    top: 0px;
     background-image: url('../arrow_r.png');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-clip: content-box;
+    background-size: 20%;
+    background-position-x: center;
 }
 
 a {
@@ -160,7 +163,7 @@ h1 {
 }
 
 #nextTime {
-    margin: 5px;
+    margin: 3px;
     padding: 0px;
     font-size: normal;
 }
@@ -168,35 +171,43 @@ h1 {
 #nextComment {
     word-wrap: break-word;
     padding: 0px;
-    margin: 5px;
+    margin: 3px;
     font-size: small;
 }
 
 #nextLink {
-    margin: 5px;
+    margin: 3px;
     padding: 0px;
     font-size: medium;
+    margin-bottom: 0px;
+}
+
+.linkholder {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .linkholder h3 {
-    padding: 2px;
     margin: 0;
 }
 
 h3 {
     text-align: left;
-    margin: 7px;
+    margin: 3px;
 }
 
 .link {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 #grid {
-    padding-left: 5px;
+    height: 100%;
     background-color: rgba(0, 88, 163, 0.76);
-    margin-top: 5px;
+    margin-top: 0px;
     display: grid;
+    grid-gap: 0px 20px;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -254,21 +265,15 @@ h3 {
     }
 }
 
-.linkholder div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-}
-
 .news {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: medium;
-    padding-top: 15px;
+    padding-top: 0px;
     color: white;
 }
+
 
 #today {
     font-size: normal;
@@ -281,23 +286,26 @@ h3 {
 }
 
 #latest {
-    width: 360px;
+    width: 300px;
     padding: 0;
     margin: 0;
-    word-wrap: break-word;
+    word-wrap: normal;
     text-align: center;
 }
 
 #newsBody {
-    width: 360px;
+    width: 300px;
     word-wrap: break-word;
     margin: 5px;
     text-align: center;
+    font-size: small;
 }
 
 .credits {
     text-align: center;
     color: grey;
+    font-size: small;
+    margin: 1px;
 }
 
 .credits a {
