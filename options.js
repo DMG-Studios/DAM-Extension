@@ -45,7 +45,7 @@ function SaveLinks(e) {
 
 function restoreEnabled() {
   function setCurrentChoice(result) {
-    let enabledO = result.enabledLinks;
+    let enabledO = result.enabledLinks || ['asta','itsl','webm','mat','thes','incy','lynd','arbs','skri','finn','libg','offi','perl','tlk'];
     let match = false;
     checkboxes.forEach((checkbox) => {
       match = false;

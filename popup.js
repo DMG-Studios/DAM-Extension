@@ -25,7 +25,7 @@ function attachClickEvent() {
 
 function GetLinkList() {
   function setCurrentChoice(result) {
-    enabledLinks = result.enabledLinks;
+    enabledLinks = result.enabledLinks || ['asta','itsl','webm','mat','thes','incy','lynd','arbs','skri','finn','libg','offi','perl','tlk'];
     enableLinks();
   }
   chrome.storage.sync.get(['enabledLinks'], function (result) {
@@ -34,6 +34,7 @@ function GetLinkList() {
 }
 
 function enableLinks() {
+  console.log(enabledLinks);
   var show = document.getElementsByClassName("show");
   console.log(show);
   let match = false;
