@@ -34,12 +34,9 @@ function GetLinkList() {
 }
 
 function enableLinks() {
-  console.log(enabledLinks);
   var show = document.getElementsByClassName("show");
-  console.log(show);
   let match = false;
   for (const link of show) {
-    console.log(link);
     match = false;
     enabledLinks.forEach(enabled => {
       if (link.id == enabled) {
