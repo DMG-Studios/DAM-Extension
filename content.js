@@ -48,8 +48,23 @@ let dOpt = {
 }
 
 // Function to fetch and parse response from calendar api // 
-
+var t = 0;
 function GetNextEvent() {
+
+
+    document.getElementById('leftEvent').addEventListener('click',eventLeft);
+    document.getElementById('rightEvent').addEventListener('click',eventRight);
+
+    function eventLeft(){
+        t = t == 0 ? 0 : t-1;
+        fillCalendar(t);
+    }
+    
+    function eventRight(){
+        t = t == calendarEvents.length-1 ? 0: t+1
+        fillCalendar(t);
+    }
+
     let calendarEvents;
     // Sub function for fetching // 
     function getCalendar() {
@@ -61,23 +76,23 @@ function GetNextEvent() {
     }
     function callCalendar(r) {
         calendarEvents = r;
-        fillCalendar();
+        fillCalendar(t);
     }
 
     getCalendar();
 
-    function fillCalendar() {
+    function fillCalendar(t) {
         // Check that CalendarEvents have been fetched before populating, else proceed with error message // 
 
         const sortedCalendar = calendarEvents.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
         if (calendarEvents) {
 
 
-            let nextEventName = sortedCalendar[0].name;
-            let nextEventComment = sortedCalendar[0].comment;
-            let nextEventStart = sortedCalendar[0].startTime;
-            let nextEventEnd = sortedCalendar[0].endTime;
-            let nextEventRoom = sortedCalendar[0].room;
+            let nextEventName = sortedCalendar[t].name;
+            let nextEventComment = sortedCalendar[t].comment;
+            let nextEventStart = sortedCalendar[t].startTime;
+            let nextEventEnd = sortedCalendar[t].endTime;
+            let nextEventRoom = sortedCalendar[t].room;
 
             // Regexp incomming comment for a http/s link to append to Link to lecture // 
 

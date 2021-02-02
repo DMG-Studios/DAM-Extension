@@ -12,6 +12,32 @@ body {
     background-size: 35%;
 }
 
+
+#leftEvent {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-image: url('../arrow_s.png');
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: 20%;
+    background-position-x: center;
+    background-position-y:bottom;
+}
+
+#rightEvent {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-image: url('../arrow_r.png');
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-size: 20%;
+    background-position-x: center;
+    background-position-y:bottom;
+}
+
+
 #settings {
     cursor: pointer;
     color: white;
@@ -231,7 +257,7 @@ h3 {
 #food {
     display: none;
     margin: 10px 0px 10px 0px;
-    width: 375px;
+    width: 345px;
 }
 
 .lunchbutton {

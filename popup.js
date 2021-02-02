@@ -83,20 +83,25 @@ function callFood(r) {
 }
 
 function fillFood() {
+
   var menus = food.MenusForDays;
   Object.keys(menus).forEach(function (k) {
-    let menudate = new Date(menus[k].Date.substring(0, 10));
-    if (menudate.toISOString() == date.toISOString()) {
-      if (menus[k].SetMenus.length > 0) {
-        for (i = 0; i < menus[k].SetMenus.length; i++) {
-          menuList[i] = menus[k].SetMenus[i].Components;
-        }
-      } else {
-        for (i = 0; i < 4; i++) {
-          menuList[i] = "No Food of selected type today"
-        }
+      let menudate = new Date(menus[k].Date.substring(0, 10));
+      if (menudate.toISOString() == date.toISOString()) {
+          if (menus[k].SetMenus) {
+              for (i = 0; i < 4; i++) {
+                  if (i < menus[k].SetMenus.length) {
+                      menuList[i] = menus[k].SetMenus[i].Components;
+                  } else {
+                      menuList[i] = "No Food of selected type today"
+                  }
+              }
+          } else {
+              for (i = 0; i < 4; i++) {
+                  menuList[i] = "No Food of selected type today"
+              }
+          }
       }
-    }
   });
 }
 
