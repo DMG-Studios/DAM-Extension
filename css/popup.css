@@ -263,6 +263,8 @@ h3 {
 .lunchbutton {
     cursor: pointer;
     padding: 4px;
+    font-size: 14px;
+    font-weight: 600;
     border: 1px solid #226fbe;
     border-radius: 5px;
     animation: nolunchbuttonHover 0.3s linear;
