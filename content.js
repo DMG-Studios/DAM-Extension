@@ -69,10 +69,15 @@ function GetNextEvent() {
     // Sub function for fetching // 
     function getCalendar() {
         fetch(fetchLink)
-            .then((r) => r.json())
-            .then((r) => {
-                callCalendar(r);
-            });
+        .then((r) => r.json())
+        .catch((e) => {
+            nextCalendarComment.textContent = "Something wen't horribly wrong. Atleast 5 highly trained tölks have been assigned to fix this, please check your settings"
+            nextCalendarLink.href = "https://www.dinmamma.fi"
+            nextCalendarLink.textContent = "DMG Studios Appologizes"
+        })
+        .then((r) => {
+            callCalendar(r);
+        });
     }
     function callCalendar(r) {
         calendarEvents = r;
@@ -143,15 +148,10 @@ function GetNextEvent() {
                 nextCalendarComment.textContent = comment;
             }
             nextCalendarLink.href = link;
-
-            // if there wasn't a response assign error message // 
-        } else {
-            nextCalendarComment.textContent = "Something wen't horribly wrong. Atleast 5 highly trained tölks have been assigned to fix this"
-            nextCalendarLink.href = "www.dinmamma.fi"
-            nextCalendarLink.textContent = "DMG Studios Appologizes"
-        }
+        } 
     }
 }
+
 // Get news from api //
 
 function GetNews() {
