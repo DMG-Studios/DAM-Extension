@@ -9,12 +9,13 @@
 
 <body>
   <div id="settings">
-    <p id="guide">To get your ARBS iCAL Link login to https://famnen.arcada.fi/arbs and go to "Visa Min Läsordning", at
+    <p id="guide">To get your ARBS iCAL Link login to <a href="https://famnen.arcada.fi/arbs" target="_blank">https://famnen.arcada.fi/arbs</a> and go to "Visa Min Läsordning", at
       the top of the page there is a iCAL link, copy the link, paste it below and click save and the internal magic does
       the rest. To go back to all events enter "default" in the field below.</p>
+      <span id="guide"> You can also enter a teachers name in format Lastname Firstname. <p id="example">Example "Doe John"</p></span>
     <form>
       <label id="labels">
-        <h3>ARBS Link</h3><input size="40" type="text" id="arbs"> <button type="submit">Save ARBS</button>
+        <h3 id="arbsLabel">ARBS Link</h3><input size="30" type="text" id="arbs"> <button type="submit">Save ARBS</button>
       </label>
       <br><br>
     </form>
@@ -42,16 +43,18 @@
 
           <input type="checkbox" class="checkbox" id="lynd" name="lynd" value="lynd" checked>
           <label for="lynd">LI-LEARNING</label><br>
+
         </div>
         <div class="col">
           <input type="checkbox" class="checkbox" id="mat" name="mat" value="mat" checked>
           <label for="mat">MAT</label><br>
+
           <input type="checkbox" class="checkbox" id="libg" name="libg" value="libg" checked>
           <label for="libg">LIBGUIDE</label><br>
 
           <input type="checkbox" class="checkbox" id="thes" name="thes" value="thes" checked>
           <label for="thes">THESEUS</label><br>
-
+      
           <input type="checkbox" class="checkbox" id="offi" name="offi" value="offi" checked>
           <label for="offi">OFFICE365</label><br>
 
@@ -63,6 +66,20 @@
 
           <input type="checkbox" class="checkbox" id="tlk" name="tlk" value="tlk" checked>
           <label for="tlk">TLK</label><br>
+        </div>
+        <div class="col">
+          <input type="checkbox" class="checkbox" id="hans" name="hans" value="hans" checked>
+          <label for="hans">HanSE</label><br>
+
+          <input type="checkbox" class="checkbox" id="hosk" name="hosk" value="hosk" checked>
+          <label for="hosk">HoSK</label><br>
+
+          <input type="checkbox" class="checkbox" id="ask" name="ask" value="ask" checked>
+          <label for="ask">ASKEN</label><br>
+
+          <input type="checkbox" class="checkbox" id="star" name="star" value="star" checked>
+          <label for="star">START</label><br>
+
         </div>
       </div>
     </form>

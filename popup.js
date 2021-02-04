@@ -25,7 +25,7 @@ function attachClickEvent() {
 
 function GetLinkList() {
   function setCurrentChoice(result) {
-    enabledLinks = result.enabledLinks || ['asta','itsl','webm','mat','thes','incy','lynd','arbs','skri','finn','libg','offi','perl','tlk'];
+    enabledLinks = result.enabledLinks || ['asta','itsl','webm','mat','thes','incy','lynd','arbs','skri','finn','libg','offi','perl','tlk','hans','hosk','ask','star'];
     enableLinks();
   }
   chrome.storage.sync.get(['enabledLinks'], function (result) {

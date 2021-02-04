@@ -33,7 +33,14 @@ GetHash();
 
 // Set Fetch link composed of api address and your ARBS link // 
 function call() {
+    if (/\s/.test(arbsHash)) {
+        let fName = arbsHash.substr(0,arbsHash.indexOf(' '));
+        let lName = arbsHash.substr(arbsHash.indexOf(' ')+1);
+        let nameStr = fName + "+" + lName;
+        fetchLink = 'https://api.cornern.tlk.fi/dam-api/teacher?name=' + nameStr;
+    }else{
     fetchLink = 'https://api.cornern.tlk.fi/dam-api/calendar?link=' + arbsHash;
+    }
     GetNextEvent();
     GetNews();
 }

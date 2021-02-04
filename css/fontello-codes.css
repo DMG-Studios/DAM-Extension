@@ -18,8 +18,10 @@
 .icon-sitemap:before { content: '\f0e8'; } /* '' */
 .icon-food:before { content: '\f0f5'; } /* '' */
 .icon-building:before { content: '\f0f7'; } /* '' */
+.icon-h-sigh:before { content: '\f0fd'; } /* '' */
 .icon-desktop:before { content: '\f108'; } /* '' */
 .icon-ok-squared:before { content: '\f14a'; } /* '' */
+.icon-euro:before { content: '\f153'; } /* '' */
 .icon-doc-text-inv:before { content: '\f15c'; } /* '' */
 .icon-linux:before { content: '\f17c'; } /* '' */
 .icon-bank:before { content: '\f19c'; } /* '' */
