@@ -80,7 +80,7 @@ function GetNextEvent() {
         .catch((e) => {
             nextCalendarComment.textContent = "Something wen't horribly wrong. Atleast 5 highly trained tölks have been assigned to fix this, please check your settings"
             nextCalendarLink.href = "https://www.dinmamma.fi"
-            nextCalendarLink.textContent = "DMG Studios Appologizes"
+            nextCalendarLink.textContent = "DMG Studios Apologizes"
         })
         .then((r) => {
             callCalendar(r);
