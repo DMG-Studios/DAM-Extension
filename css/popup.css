@@ -41,7 +41,7 @@ body {
 
 #settings {
     cursor: pointer;
-    color: white;
+    color: snow;
     font-size: x-large;
     position: absolute;
     right: 0px;
@@ -129,7 +129,7 @@ a:hover {
 #nextNoti {
     opacity: 0.7;
     position: absolute;
-    color: white;
+    color: whitesmoke;
     text-decoration: underline;
     left: 10px;
     top: 0px;
@@ -301,7 +301,7 @@ h3 {
     align-items: center;
     font-size: medium;
     padding-top: 0px;
-    color: whitesmoke;
+    color: snow;
 }
 
 

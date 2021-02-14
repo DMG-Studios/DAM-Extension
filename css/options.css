@@ -11,12 +11,12 @@ body {
 
 #labels{
     font-size: large;
-    color: white;
+    color: snow;
     padding: 0;
     margin: 0;
 }
 a{
-    color: white;
+    color: snow;
     font-weight: 600;
 }
 
@@ -30,7 +30,7 @@ form{
     margin: 0;
 }
 #guide{
-    color: white;
+    color: whitesmoke;
     word-wrap: break-word;
     max-width: 400px;
     padding-left: 20px;
@@ -59,7 +59,7 @@ form{
     flex-direction: column;
     padding: 10px;
     margin: 10px;
-    color:snow;
+    color:whitesmoke;
 }
 h3{
     color: snow;
