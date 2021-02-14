@@ -163,34 +163,56 @@ function GetNextEvent() {
 
 function GetNews() {
     let news;
+    let events;
     let latest = document.getElementById('latest');
     let newsBody = document.getElementById('newsBody');
     let newsLink = document.getElementById('newsLink');
+
     function getNewsArticle() {
         fetch('https://api.cornern.tlk.fi/dam-api/news')
             .then((r) => r.json())
             .then((r) => {
-                callNews(r);
+                SetNews(r);
+            }).then(() => {
+                GetEvents();
             });
     }
-    function callNews(r) {
-        news = r;
-        // fillNews();
-        updateNews(news[0]);
-        loopNews();
+
+    function GetEvents() {
+        fetch('https://api.cornern.tlk.fi/dam-api/events')
+            .then((r) => r.json())
+            .then((r) => {
+                SetEvents(r)
+            }).then(() => {
+                callNews();
+            });
     }
 
+    function SetEvents(r) {
+        events = r;
+    }
+
+    function SetNews(r) {
+        news = r;
+    }
+    function callNews() {
+        
+        for(let i in news){
+            events.push(news[i]);
+        }
+        updateNews(events[0]);
+        loopNews();
+    }
     getNewsArticle();
 
     var x = 0
-
     // Function to loop news indefinetly // 
     function loopNews() {
 
-        if (news) {
+        if (Object.keys(events).length > 1) {
             setInterval(() => {
-                updateNews(news[x]);
-                x = x < Object.keys(news).length - 1 ? x + 1 : 0;
+                updateNews(events[x]);
+                x = x < Object.keys(events).length - 1 ? x + 1 : 0;
             }, newsTimeOut);
         } else {
             latest.textContent = "Couldn't fetch news, we are sorry and working on a fix";
@@ -204,14 +226,15 @@ function GetNews() {
     function newLeft() {
         newsTimeOut = 0;
         x = x == 0 ? 4 : x - 1;
-        updateNews(news[x]);
+        updateNews(events[x]);
     }
 
     function newsRight() {
         newsTimeOut = 0;
         x = x == 4 ? 0 : x + 1
-        updateNews(news[x]);
+        updateNews(events[x]);
     }
+
     document.getElementById('left').addEventListener('click', newLeft);
     document.getElementById('right').addEventListener('click', newsRight);
 }
