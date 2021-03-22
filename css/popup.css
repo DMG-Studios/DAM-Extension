@@ -193,7 +193,7 @@ h1 {
 #nextTime {
     margin: 3px;
     padding: 0px;
-    font-size: normal;
+    font-size: medium;
 }
 
 #nextComment {
@@ -306,7 +306,6 @@ h3 {
 
 
 #today {
-    font-size: normal;
     margin-right: 0;
 }
 

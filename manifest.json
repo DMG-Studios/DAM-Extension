@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Din Arcada Mamma",
-  "version": "0.5.6.3",
+  "version": "0.5.6.6",
   "browser_action": {
     "default_icon": "dam_black-white.png",
     "default_popup": "popup.html"
