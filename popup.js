@@ -86,38 +86,42 @@ function closeLink() {
 // Call food from a PHP Proxy that calls the Foodandco API 
 // Error handling is done in two phases, one for not getting a correct respons which happens if no food is avaiable at all and one if no food of selected type is available
 var food;
-var menuList = [];
+let menuList = [];
 function getFood() {
-  fetch("http://nugge.fi/foodGet.php")
-      .then((r) => r.json())
-      .then((r) => {
-          callFood(r);
-      }).catch((error) => {
-          for (i = 0; i < 4; i++) {
-              menuList[i] = "No Food Service Today or API Broken :("
-          }
-      });
+    fetch("http://nugge.fi/foodGet.php")
+        .then((r) => r.json())
+        .then((r) => {
+            callFood(r);
+        }).catch((error) => {
+            for (i = 0; i < 4; i++) {
+                menuList[i] = "No Food Service Today or API Broken :("
+            }
+        });
 }
 
 function callFood(r) {
-  food = r;
-  fillFood();
+    food = r;
+    fillFood();
 }
 
 function fillFood() {
-  var menus = food.MenusForDays;
-  Object.keys(menus).forEach(function (k) {
-      let menudate = new Date(menus[k].Date.substring(0, 10));
-      if (menudate.toISOString() == date.toISOString()) {
-          for (i = 0; i < 4; i++) {
-              if (menus[k].SetMenus[i].Components.length > 1) {
-                  menuList[i] = menus[k].SetMenus[i].Components;
-              } else {
-                  menuList[i] = "No Food of selected type today"
-              }
-          }
-      }
-  });
+    var menus = food.MenusForDays;
+    Object.keys(menus).forEach(function (k) {
+        let menudate = new Date(menus[k].Date.substring(0, 10));
+        if (menudate.toDateString() == date.toDateString()) {
+            for (i = 0; i < menus[k].SetMenus.length; i++) {
+                if (menus[k].SetMenus[i].Name) {
+                    menuList[i] = menus[k].SetMenus[i].Components;
+                }
+            }
+        }
+        });
+
+        for (i = 0; i < 4; i++) {
+            if (menuList[i] == null) {
+                menuList[i] = "No Food of selected type today"
+            }
+        }
 }
 
 // Show lunch when a food type is clicked from menuList
