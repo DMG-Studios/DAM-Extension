@@ -93,7 +93,7 @@ function GetNextEvent() {
         // Check that CalendarEvents have been fetched before populating, else proceed with error message // 
 
         const sortedCalendar = calendarEvents.sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
-        if (calendarEvents) {
+        if (calendarEvents.length > 0) {
             let nextEventName = sortedCalendar[t].name;
             let nextEventComment = sortedCalendar[t].comment;
             let nextEventStart = sortedCalendar[t].startTime;
@@ -151,7 +151,10 @@ function GetNextEvent() {
                 nextCalendarComment.textContent = comment;
             }
             nextCalendarLink.href = link;
-        } 
+        }else{
+            nextCalendar.textContent = "No events today";
+            nextCalendarLink.style.display = "none";
+        }
     }
 }
 
